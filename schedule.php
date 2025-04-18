@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <header class="bg-white shadow">
     <div class="container mx-auto px-4 py-4">
       <div class="flex justify-between items-center">
-        <a href="home.html" class="flex items-center">
+        <a href="home.php" class="flex items-center">
           <svg class="h-10 w-10 text-indigo-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
@@ -102,10 +102,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <span class="ml-2 text-xl font-bold text-gray-800">EduSphere</span>
         </a>
         <nav class="hidden md:flex items-center space-x-8">
-          <a href="home.html" class="text-gray-600 hover:text-indigo-600">Home</a>
-          <a href="courses.html" class="text-gray-600 hover:text-indigo-600">Courses</a>
-          <a href="forums.html" class="text-gray-600 hover:text-indigo-600">Forums</a>
-          <a href="dashboard.html" class="text-gray-600 hover:text-indigo-600">Dashboard</a>
+          <a href="home.php" class="text-gray-600 hover:text-indigo-600">Home</a>
+          <a href="courses.php" class="text-gray-600 hover:text-indigo-600">Courses</a>
+          <a href="forums.php" class="text-gray-600 hover:text-indigo-600">Forums</a>
+          <a href="dashboard.php" class="text-gray-600 hover:text-indigo-600">Dashboard</a>
           <a href="#" class="text-gray-600 hover:text-indigo-600">About</a>
         </nav>
         <div class="flex items-center space-x-4">
@@ -114,8 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           </button>
-          <a href="dashboard.html" class="hidden md:block px-4 py-2 rounded text-gray-700 hover:text-indigo-600">My Account</a>
-          <a href="auth.html" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Sign In</a>
+          <a href="dashboard.php" class="hidden md:block px-4 py-2 rounded text-gray-700 hover:text-indigo-600">My Account</a>
+          <a href="auth.php" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Sign In</a>
         </div>
       </div>
     </div>
