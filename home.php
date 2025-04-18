@@ -833,13 +833,13 @@
           $mail->isSMTP();
           $mail->Host       = 'smtp.gmail.com';
           $mail->SMTPAuth   = true;
-          $mail->Username   = 'vermavaibhav268@gmail.com'; // Your Gmail address
-          $mail->Password   = 'vpdh aolk hnpr wgov'; // Your Gmail app password
+          $mail->Username   = 'Email'; // Your Gmail address
+          $mail->Password   = 'password'; // Your Gmail app password
           $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
           $mail->Port       = 587;
 
           // Email content
-          $mail->setFrom('vermavaibhav268@gmail.com', 'EduSphere');
+          $mail->setFrom('Email', 'EduSphere');
           $mail->addAddress($subscriber_email); // Send email to the subscriber
 
           $mail->isHTML(true);
