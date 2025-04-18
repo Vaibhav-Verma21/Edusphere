@@ -1,0 +1,11 @@
+{
+  "name": "edusphere-html",
+  "version": "1.0.0",
+  "description": "EduSphere Learning Platform - HTML Version",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

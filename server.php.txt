@@ -1,0 +1,64 @@
+<?php
+// db.php - Database Connection
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db_name = 'edusphere';
+$conn = new mysqli($host, $user, $pass, $db_name);
+if ($conn->connect_error) {
+    die('Database connection failed: ' . $conn->connect_error);
+}
+
+// auth.php - User Authentication
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require 'db.php';
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if (isset($_POST['register'])) {
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $stmt = $conn->prepare('INSERT INTO users (email, password) VALUES (?, ?)');
+        $stmt->bind_param('ss', $email, $hashed_password);
+        if ($stmt->execute()) {
+            echo 'User registered successfully!';
+        } else {
+            echo 'Error: ' . $stmt->error;
+        }
+    }
+
+    if (isset($_POST['login'])) {
+        $stmt = $conn->prepare('SELECT id, password FROM users WHERE email = ?');
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+        if ($result && password_verify($password, $result['password'])) {
+            $_SESSION['user_id'] = $result['id'];
+            echo 'Login successful!';
+        } else {
+            echo 'Invalid credentials!';
+        }
+    }
+}
+
+// courses.php - Fetch & Enroll Courses
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    require 'db.php';
+    $result = $conn->query('SELECT * FROM courses');
+    echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['enroll'])) {
+    require 'db.php';
+    $user_id = $_SESSION['user_id'];
+    $course_id = $_POST['course_id'];
+    $stmt = $conn->prepare('INSERT INTO enrollments (user_id, course_id) VALUES (?, ?)');
+    $stmt->bind_param('ii', $user_id, $course_id);
+    if ($stmt->execute()) {
+        echo 'Enrolled successfully!';
+    } else {
+        echo 'Error: ' . $stmt->error;
+    }
+}
+?>

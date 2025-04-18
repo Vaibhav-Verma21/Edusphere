@@ -1,0 +1,17 @@
+{
+    "name": "arver/edusphere-html1",
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arver\\EdusphereHtml1\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "snehasuman019",
+            "email": "snehasuman1119@gmail.com"
+        }
+    ]
+}
